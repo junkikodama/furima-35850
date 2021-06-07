@@ -17,17 +17,17 @@ has_many :items
 has_many :purchases
 
 ## items テーブル
-| Column      | Type       | Options           |
-| ----------- | ---------- | ----------------- |
-| name        | string     | null false        |
-| description | text       | null false        |
-| category_id | string     | null false        |
-| status_id   | string     | null false        |
-| charge_id   | string     | null false        |
-| area_id     | string     | null false        |
-| duration_id | string     | null false        |
-| price       | integer    | null false        |
-| user        | references | foreign_key: true |
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| name          | string     | null false        |
+| description   | text       | null false        |
+| category_id   | integer    | null false        |
+| status_id     | integer    | null false        |
+| charge_id     | integer    | null false        |
+| prefecture_id | integer    | null false        |
+| duration_id   | integer    | null false        |
+| price         | integer    | null false        |
+| user          | references | foreign_key: true |
 
 belongs_to :user
 has_one :purchase
@@ -46,7 +46,7 @@ has_one :address
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
 | postal_code   | string     | null false        |
-| prefecture_id | string     | null false        |
+| prefecture_id | integer    | null false        |
 | city          | string     | null false        |
 | block         | string     | null false        |
 | build         | string     |                   |

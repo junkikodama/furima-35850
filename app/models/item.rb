@@ -14,7 +14,6 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :description
-    validates :price
   end
 
   with_options numericality: { other_than: 1 } do
@@ -24,5 +23,8 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :duration_id
   end
+
+  validates :price, presence: true, format: {with: /\A[0-9]+\z/},length: {minimum: 3, maxinum: 7},
+             numericality: { only_integer: true,greater_than: 300, less_than: 10000000}
 
 end

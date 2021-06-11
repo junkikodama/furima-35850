@@ -18,10 +18,12 @@ before_action :authenticate_user!,except: [:index,:show]
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to item_path(@item.id)
-    else
-      render :edit
+    if @item.user_id == current_user.id
+      if @item.update(item_params)
+        redirect_to item_path(@item.id)
+      else
+        render :edit
+      end
     end
   end
 

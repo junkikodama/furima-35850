@@ -16,7 +16,9 @@ before_action :item_find ,only: [:show, :edit, :update]
   end
 
   def update
-    if @item.user_id == current_user.id
+    unless @item.user_id == current_user.id
+      redirect_to action: :index
+    else
       if @item.update(item_params)
         redirect_to item_path(@item.id)
       else

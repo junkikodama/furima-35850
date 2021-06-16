@@ -11,6 +11,9 @@ before_action :user_check ,only: [:edit, :update, :destroy]
   end
 
   def edit
+    if @item.purchase.present?
+      redirect_to root_path
+    end
   end
 
   def destroy

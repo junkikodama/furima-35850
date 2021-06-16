@@ -6,5 +6,6 @@ FactoryBot.define do
     build {'なんとかビル2F'}
     prefecture_id {28}
     phone_number {'0666246800'}
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end

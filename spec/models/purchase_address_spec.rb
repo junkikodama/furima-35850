@@ -88,6 +88,12 @@ RSpec.describe PurchaseAddress, type: :model do
           @purchase.valid?
           expect(@purchase.errors.full_messages).to include('Phone number is invalid')
         end
+
+        it 'トークンが空では商品購入出来ない' do
+          @purchase.token = ''
+          @purchase.valid?
+          expect(@purchase.errors.full_messages).to include("Token can't be blank")
+        end
       end
     end
 end
